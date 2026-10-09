@@ -1,6 +1,6 @@
-import React, {useState} from 'react'
+import {useState} from 'react'
 import {useDispatch} from 'react-redux'
-import {addTodo} from '../features/todo/todoSlice' 
+import {addTodo} from '../features/todo/todoSlice'
 
 function AddTodo() {
 
@@ -9,24 +9,38 @@ function AddTodo() {
 
     const addTodoHandler = (e) => {
         e.preventDefault()
-        dispatch(addTodo(input))
+        const text = input.trim()
+        if (!text) return
+        dispatch(addTodo(text))
         setInput('')
     }
 
   return (
-    <form onSubmit={addTodoHandler} className="space-x-3 mt-12">
-      <input
-        type="text"
-        className="bg-gray-800 rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-        placeholder="Enter a Todo..."
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
-      />
+    <form onSubmit={addTodoHandler} className="flex items-center gap-2 sm:gap-3">
+      <div className="relative flex-1">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={2}
+          stroke="currentColor"
+          className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-500"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+        </svg>
+        <input
+          type="text"
+          className="w-full rounded-2xl border border-white/10 bg-white/5 py-3 pl-11 pr-4 text-sm text-slate-100 placeholder-slate-500 outline-none transition duration-200 focus:border-indigo-500/50 focus:bg-white/10 focus:ring-4 focus:ring-indigo-500/10"
+          placeholder="What needs to be done?"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+        />
+      </div>
       <button
         type="submit"
-        className="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+        className="shrink-0 rounded-2xl bg-gradient-to-r from-indigo-500 to-violet-600 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-indigo-500/25 transition duration-200 hover:from-indigo-500 hover:to-violet-500 hover:shadow-indigo-500/40 focus:outline-none focus:ring-4 focus:ring-indigo-500/30 active:scale-95"
       >
-        Add Todo
+        Add
       </button>
     </form>
   )
