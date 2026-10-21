@@ -1,16 +1,52 @@
-# React + Vite
+# Redux Toolkit Todo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A compact task-list app built with React and Redux Toolkit. Add tasks, remove them, and see the current task count in a responsive dark UI.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Add a task using the form; blank or whitespace-only entries are ignored.
+- Remove a task from the list.
+- Redux Toolkit slice and store manage the task state.
+- Empty state and task-count display.
+- Tailwind CSS styling with responsive layout.
 
-## React Compiler
+The app starts with a sample `Hello World` task. Tasks are held in Redux state only, so they reset when the page is refreshed.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech stack
 
-## Expanding the ESLint configuration
+- React 19
+- Redux Toolkit and React Redux
+- Vite
+- Tailwind CSS
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Getting started
+
+### Requirements
+
+- Node.js and npm
+
+### Install and run
+
+```bash
+git clone https://github.com/faizanshekh/redux-toolkit-todo.git
+cd redux-toolkit-todo
+npm install
+npm run dev
+```
+
+Open the local URL printed by Vite.
+
+## Available scripts
+
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Start the local development server |
+| `npm run build` | Create a production build in `dist/` |
+| `npm run preview` | Preview the production build locally |
+| `npm run lint` | Run ESLint |
+
+## Limitations
+
+- Task data is not saved to local storage or a backend, so refreshing the page resets the list.
+- Tasks can be added and removed; editing, completion status, filters, and persistence are not implemented.
+- No automated tests are currently configured.
